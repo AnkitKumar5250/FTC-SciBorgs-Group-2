@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Treads {
     public DcMotor leftMotor;
@@ -8,7 +9,14 @@ public class Treads {
 
     public double speed;
 
+    public void Init(HardwareMap hardwareMap) {
+        leftMotor = hardwareMap.get(DcMotor.class,"Left Motor");
+        rightMotor = hardwareMap.get(DcMotor.class,"Right Motor");
+    }
     public void UpdatePower(Input input) {
+        if (input.inputMode != "Drive") {
+            return;
+        }
         if (input.current.right_stick_y != 0 && input.current.left_stick_x != 0) {
             return;
         }
