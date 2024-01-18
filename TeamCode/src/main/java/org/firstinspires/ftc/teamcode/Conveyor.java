@@ -9,6 +9,9 @@ public class Conveyor {
 
     public void Init(HardwareMap hardwareMap) {
         motor = hardwareMap.get(DcMotor.class,"Conveyor Motor");
+        motor.setDirection(DcMotor.Direction.FORWARD);
+        motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); 
+        motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
     public void UpdateConveyorPower(Input input) {
         if (input.inputMode != "Conveyor") {
