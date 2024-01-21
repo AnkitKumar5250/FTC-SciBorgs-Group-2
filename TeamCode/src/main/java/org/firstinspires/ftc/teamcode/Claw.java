@@ -27,17 +27,19 @@ public class Claw {
         if (input.inputMode != "claw") {
             return;
         }
+
         baseY.setPosition(baseY.getPosition() - input.current.left_stick_x * baseSpeedY);
         baseX.setPosition(baseX.getPosition() - input.current.left_stick_y * baseSpeedX);
         elbow.setPosition(elbow.getPosition() - input.current.right_stick_y * elbowSpeed);
-        if (input.current.x != input.previous.x && input.current.x) {
-            handTop.setPosition(0.5);
-            handBottom.setPosition(0.5);
-        }
-        if (input.current.x != input.previous.x && !input.current.x) {
+
+        if (input.current.x != input.previous.x) {
+            if (input.current.x) {
+                handTop.setPosition(0.5);
+                handBottom.setPosition(0.5);
+                return;
+            }
             handTop.setPosition(0);
             handBottom.setPosition(0);
         }
-
     }
 }
