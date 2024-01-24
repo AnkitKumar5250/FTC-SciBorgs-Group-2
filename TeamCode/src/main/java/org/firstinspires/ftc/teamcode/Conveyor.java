@@ -16,7 +16,7 @@ public class Conveyor {
         motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // motor immediately stops when setPower == 0; Does not float/glide
         motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); // the encoder position is set to zero and motor stops; must use another setMode option(RUN_WITHOUT_ENCODER, RUN_TO_POSITION, RUN_WITH_ENCODER) to start motor again
     }
-    public void UpdateConveyorPower(Input input) {
+    public void Update(Input input) {
         // Since there are many systems in place and only one controller
         // It would be beneficial to have different modes for operating different mechanisms(which the driver can switch through)
         if (input.inputMode != "Conveyor") {

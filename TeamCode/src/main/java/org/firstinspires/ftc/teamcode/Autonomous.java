@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name = "Autonomous",group = "OpMode")
 public class Autonomous extends OpMode {
+    // fields for the different components of the robot
     public Claw claw;
     public Wheels wheels;
 
@@ -12,11 +13,6 @@ public class Autonomous extends OpMode {
     public double[] position = new double[3];
     public double[] rotation = new double[3];
 
-    public void Unlatch() {
-        // Code for unlatching the robot at the start of the match
-
-        // simply open the claw
-    }
     public void latch() {
         // Code for latching the robot at the before the match
 
@@ -35,6 +31,8 @@ public class Autonomous extends OpMode {
     public void init() {
         claw.Init(hardwareMap);
         wheels.Init(hardwareMap);
+
+        claw.open();
     }
 
     @Override

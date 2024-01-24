@@ -35,7 +35,7 @@ public class Wheels {
         topLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         topRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
-    public void UpdatePower(Input input) {
+    public void Update(Input input) {
         // Since there are many systems in place and only one controller
         // It would be beneficial to have different modes for operating different mechanisms(which the driver can switch through)
         if (input.inputMode != "Drive") {

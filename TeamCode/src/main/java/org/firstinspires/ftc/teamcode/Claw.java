@@ -23,7 +23,7 @@ public class Claw {
         handBottom = hardwareMap.get(Servo.class,"Hand Bottom Servo");
     }
 
-    public void UpdateServo(Input input) {
+    public void Update(Input input) {
         if (input.inputMode != "claw") {
             return;
         }
@@ -34,12 +34,27 @@ public class Claw {
 
         if (input.current.x != input.previous.x) {
             if (input.current.x) {
-                handTop.setPosition(0.5);
-                handBottom.setPosition(0.5);
+                open();
                 return;
             }
-            handTop.setPosition(0);
-            handBottom.setPosition(0);
+            close();
         }
+        if (input.current.y != input.previous.y) {
+            if (input.current.x) {
+                close();
+                return;
+            }
+            open();
+        }
+    }
+
+    public void open() {
+        // code for opening the claw
+    }
+    public void retract() {
+        // code for retracting the slide
+    }
+    public void close() {
+        // code for closing the claw
     }
 }

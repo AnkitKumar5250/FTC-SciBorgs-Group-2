@@ -7,7 +7,7 @@ public class Input {
     public Gamepad current;
     public String inputMode;
 
-    public void UpdateInput(Gamepad gamepad) {
+    public void Update(Gamepad gamepad) {
         previous = current;
         current = gamepad;
     }
