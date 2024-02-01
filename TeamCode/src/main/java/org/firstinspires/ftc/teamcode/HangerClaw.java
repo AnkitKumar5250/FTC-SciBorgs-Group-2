@@ -7,18 +7,18 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class Claw {
     public Servo baseY; // Joint 1
     public double baseSpeedY;
-    public Servo baseX; // Rotating bottom base
-    public double baseSpeedX;
-    public Servo elbow; // Joint 2
-    public double elbowSpeed;
+    //public Servo baseX; // Rotating bottom base
+    //public double baseSpeedX;
+    //public Servo elbow; // Joint 2
+    //public double elbowSpeed;
     public Servo hand; // Top of claw ; Grabby part
     //public Servo handBottom; // Bottom of claw 
-    public final double shape_limit; // the rotation of claw such that it grabs both cube & sphere(without crushing)
+    public final double grab_limit; // the rotation of claw such that it grabs the hook on the lander
 
     public void Init(HardwareMap hardwareMap) {
         baseY = hardwareMap.get(Servo.class,"Claw Base X Servo");
-        baseX = hardwareMap.get(Servo.class,"Claw Base Y Servo");
-        elbow = hardwareMap.get(Servo.class,"Claw Elbow Servo");
+        //baseX = hardwareMap.get(Servo.class,"Claw Base Y Servo");
+        //elbow = hardwareMap.get(Servo.class,"Claw Elbow Servo");
         hand = hardwareMap.get(Servo.class,"Hand Servo");
         //handBottom = hardwareMap.get(Servo.class,"Hand Bottom Servo");
     }
