@@ -5,22 +5,22 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class Claw {
-    public Servo baseY;
+    public Servo baseY; // Joint 1
     public double baseSpeedY;
-    public Servo baseX;
+    public Servo baseX; // Rotating bottom base
     public double baseSpeedX;
-    public Servo elbow;
+    public Servo elbow; // Joint 2
     public double elbowSpeed;
-    public Servo handTop;
-    public Servo handBottom;
+    public Servo hand; // Top of claw ; Grabby part
+    //public Servo handBottom; // Bottom of claw 
 
 
     public void Init(HardwareMap hardwareMap) {
         baseY = hardwareMap.get(Servo.class,"Claw Base X Servo");
         baseX = hardwareMap.get(Servo.class,"Claw Base Y Servo");
         elbow = hardwareMap.get(Servo.class,"Claw Elbow Servo");
-        handTop = hardwareMap.get(Servo.class,"Hand Top Servo");
-        handBottom = hardwareMap.get(Servo.class,"Hand Bottom Servo");
+        hand = hardwareMap.get(Servo.class,"Hand Servo");
+        //handBottom = hardwareMap.get(Servo.class,"Hand Bottom Servo");
     }
 
     public void Update(Input input) {
