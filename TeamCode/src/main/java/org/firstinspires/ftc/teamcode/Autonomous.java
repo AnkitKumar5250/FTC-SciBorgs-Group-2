@@ -6,8 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name = "Autonomous",group = "OpMode")
 public class Autonomous extends OpMode {
     // fields for the different components of the robot
-    public Claw claw;
+    public HangerClaw hangerClaw;
     public Wheels wheels;
+
+    public Sensor sensor;
 
     // variables that store the robots position and rotation on the field which can be used to calculate where it should go
     public double[] position = new double[3];
@@ -29,10 +31,10 @@ public class Autonomous extends OpMode {
 
     @Override
     public void init() {
-        claw.Init(hardwareMap);
+        hangerClaw.Init(hardwareMap);
         wheels.Init(hardwareMap);
 
-        claw.open();
+        hangerClaw.open();
     }
 
     @Override

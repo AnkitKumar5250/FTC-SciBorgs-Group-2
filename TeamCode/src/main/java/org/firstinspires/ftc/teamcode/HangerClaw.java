@@ -1,10 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Claw {
+public class HangerClaw {
     public Servo baseY; // Joint 1
     public double baseSpeedY;
     //public Servo baseX; // Rotating bottom base
@@ -13,7 +12,7 @@ public class Claw {
     //public double elbowSpeed;
     public Servo hand; // Top of claw ; Grabby part
     //public Servo handBottom; // Bottom of claw 
-    public final double grab_limit; // the rotation of claw such that it grabs the hook on the lander
+    public double grab_limit = 0; // the rotation of claw such that it grabs the hook on the lander
 
     public void Init(HardwareMap hardwareMap) {
         baseY = hardwareMap.get(Servo.class,"Claw Base X Servo");

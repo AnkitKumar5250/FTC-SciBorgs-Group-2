@@ -7,19 +7,19 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class DriverControl extends OpMode {
     // fields for the different components of the robot
     public Wheels wheels;
-    public Claw claw;
+    public HangerClaw hangerClaw;
     public Input input1;
 
     @Override
     public void init() {
         wheels.Init(hardwareMap);
-        claw.Init(hardwareMap);
+        hangerClaw.Init(hardwareMap);
     }
 
     @Override
     public void loop() {
         input1.Update(gamepad1);
-        claw.Update(input1);
+        hangerClaw.Update(input1);
         wheels.Update(input1);
     }
 

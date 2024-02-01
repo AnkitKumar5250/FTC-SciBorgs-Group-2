@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class LinearSlide {
+public class Intake {
   public DcMotor slide; // motor to move rigging
   //public DcMotor slideRight;
   public Servo claw; // grabbing the game pieces
@@ -28,32 +28,34 @@ public class LinearSlide {
     }
 
     public void Update(Input input) {
-      if (input.inputMode != "claw") {
-              return;
-          }
-          if (input.current.x != input.previous.x) {
-              if (input.current.x) {
-                  open();
-                  return;
-              }
-              close();
-          }
-          if (input.current.y != input.previous.y) {
-              if (input.current.x) {
-                  close();
-                  return;
-              }
-              open();
-      }
+        if (input.inputMode != "claw") {
+            return;
+        }
+        if (input.current.x != input.previous.x) {
+            if (input.current.x) {
+                this.open();
+                return;
+            }
+            this.close();
+        }
+        if (input.current.y != input.previous.y) {
+            if (input.current.x) {
+                this.close();
+                return;
+            }
+            this.open();
+        }
+
+    }
     public void open() {
         // code for opening the claw
-        claw.setposition(claw_limit);
+        claw.setPosition(0.5);
     }
     public void retract() {
         // code for retracting the slide
     }
     public void close() {
         // code for closing the claw
-        claw.setposition(0);
+        claw.setPosition(0);
     }
 }
