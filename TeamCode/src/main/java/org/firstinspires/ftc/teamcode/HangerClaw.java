@@ -29,8 +29,8 @@ public class Claw {
         }
 
         baseY.setPosition(baseY.getPosition() - input.current.left_stick_x * baseSpeedY);
-        baseX.setPosition(baseX.getPosition() - input.current.left_stick_y * baseSpeedX);
-        elbow.setPosition(elbow.getPosition() - input.current.right_stick_y * elbowSpeed);
+        //baseX.setPosition(baseX.getPosition() - input.current.left_stick_y * baseSpeedX);
+        //elbow.setPosition(elbow.getPosition() - input.current.right_stick_y * elbowSpeed);
 
         if (input.current.x != input.previous.x) {
             if (input.current.x) {
@@ -53,7 +53,7 @@ public class Claw {
         hand.setposition(shape_limit);
     }
     public void retract() {
-        // code for retracting the slide
+        // code for retracting the arm
     }
     public void close() {
         // code for closing the claw
