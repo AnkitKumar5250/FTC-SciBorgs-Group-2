@@ -4,11 +4,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class LinearSlide {
+public class Intake {
   public DcMotor slide; // motor to move rigging
   //public DcMotor slideRight;
   public Servo claw; // grabbing the game pieces
-  public Servo claw_limit; // rotation limit such that the claw is able to grab the game pieces
+  public final double claw_limit; // rotation limit such that the claw is able to grab the game pieces
   
   public void Init(HardwareMap hardwareMap) {
     // initialize motor on the linear slide
@@ -26,7 +26,6 @@ public class LinearSlide {
     //slideRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // motor immediately stops when setPower == 0; Does not float/glide
     //slideRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); // the encoder position is set to zero and motor stops; must use another setMode option(RUN_WITHOUT_ENCODER, RUN_TO_POSITION, RUN_WITH_ENCODER) to start motor again
     }
-    //if(input
     public void Update(Input input) {
       if (input.inputMode != "claw") {
               return;
