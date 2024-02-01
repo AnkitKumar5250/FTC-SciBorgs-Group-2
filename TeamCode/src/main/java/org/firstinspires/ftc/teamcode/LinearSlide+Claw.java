@@ -47,13 +47,13 @@ public class LinearSlide {
       }
     public void open() {
         // code for opening the claw
-        claw.setposition(claw_limit);
+        claw.setPosition(claw_limit);
     }
     public void retract() {
         // code for retracting the slide
     }
     public void close() {
         // code for closing the claw
-        claw.setposition(0);
+        claw.setPosition(0);
     }
 }
