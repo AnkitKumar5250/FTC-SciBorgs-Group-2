@@ -49,7 +49,7 @@ public class Intake {
     }
     public void open() {
         // code for opening the claw
-        claw.setPosition(0.5);
+        claw.setPosition(claw_limit);
     }
     public void retract() {
         // code for retracting the slide
