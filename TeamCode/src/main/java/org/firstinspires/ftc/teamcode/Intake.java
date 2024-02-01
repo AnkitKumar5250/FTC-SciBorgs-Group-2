@@ -8,7 +8,7 @@ public class Intake {
   public DcMotor slide; // motor to move rigging
   //public DcMotor slideRight;
   public Servo claw; // grabbing the game pieces
-  public Servo claw_limit; // rotation limit such that the claw is able to grab the game pieces
+  public final double claw_limit; // rotation limit such that the claw is able to grab the game pieces
   
   public void Init(HardwareMap hardwareMap) {
     // initialize motor on the linear slide
