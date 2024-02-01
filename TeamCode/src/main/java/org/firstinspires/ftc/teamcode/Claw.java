@@ -13,7 +13,7 @@ public class Claw {
     public double elbowSpeed;
     public Servo hand; // Top of claw ; Grabby part
     //public Servo handBottom; // Bottom of claw 
-
+    public final double shape_limit; // the rotation of claw such that it grabs both cube & sphere(without crushing)
 
     public void Init(HardwareMap hardwareMap) {
         baseY = hardwareMap.get(Servo.class,"Claw Base X Servo");
@@ -50,11 +50,13 @@ public class Claw {
 
     public void open() {
         // code for opening the claw
+        hand.setposition(shape_limit);
     }
     public void retract() {
         // code for retracting the slide
     }
     public void close() {
         // code for closing the claw
+        hand.setposition(0);
     }
 }
