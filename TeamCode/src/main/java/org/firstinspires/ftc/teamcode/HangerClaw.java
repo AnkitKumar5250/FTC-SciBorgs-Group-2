@@ -49,7 +49,7 @@ public class HangerClaw {
 
     public void open() {
         // code for opening the claw
-        hand.setPosition(shape_limit);
+        hand.setPosition(grab_limit);
     }
     public void retract() {
         // code for retracting the arm
