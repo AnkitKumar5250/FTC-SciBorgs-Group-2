@@ -50,13 +50,13 @@ public class Claw {
 
     public void open() {
         // code for opening the claw
-        hand.setposition(shape_limit);
+        hand.setPosition(shape_limit);
     }
     public void retract() {
         // code for retracting the arm
     }
     public void close() {
         // code for closing the claw
-        hand.setposition(0);
+        hand.setPosition(0);
     }
 }
