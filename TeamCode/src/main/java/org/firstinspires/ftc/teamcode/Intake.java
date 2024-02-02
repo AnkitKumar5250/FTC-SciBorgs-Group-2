@@ -17,15 +17,23 @@ public class Intake {
     claw = hardwareMap.get(Servo.class, "Linear Slide Claw Servo");
 
     // sets instructions for linear slide motor
-    slide.setDirection(DcMotor.Direction.FORWARD); // motor will move forward when setPower is positive
-    slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // motor immediately stops when setPower == 0; Does not float/glide
-    slide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); // the encoder position is set to zero and motor stops; must use another setMode option(RUN_WITHOUT_ENCODER, RUN_TO_POSITION, RUN_WITH_ENCODER) to start motor again
+    //slide.setDirection(DcMotor.Direction.FORWARD); // motor will move forward when setPower is positive
+    //slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // motor immediately stops when setPower == 0; Does not float/glide
+    //slide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); // the encoder position is set to zero and motor stops; must use another setMode option(RUN_WITHOUT_ENCODER, RUN_TO_POSITION, RUN_WITH_ENCODER) to start motor again
 
     // sets instructions for right linear slide motor
     //slideRight.setDirection(DcMotor.Direction.FORWARD); // motor will move forward when setPower is positive
     //slideRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // motor immediately stops when setPower == 0; Does not float/glide
     //slideRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); // the encoder position is set to zero and motor stops; must use another setMode option(RUN_WITHOUT_ENCODER, RUN_TO_POSITION, RUN_WITH_ENCODER) to start motor again
     }
+  //below is implementation for control of slide using dpad, seems to give a lot more control and allows  
+  if (input.current.dpad_up){
+  slide.setDirection(DcMotor.Direction.FORWARD);
+}
+    if (input.current.dpad_down){
+    slide.setDirection(DcMotor.Direction.REVERSE);
+    }
+  
     public void Update(Input input) {
       if (input.inputMode != "claw") {
               return;
