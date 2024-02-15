@@ -34,6 +34,12 @@ public class Wheels {
         bottomRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         topLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         topRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        // Basically instead of inputting a distance(ex: 3cm) it will just move when either when we tell it to
+        bottomLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bottomRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        topLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        topRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
     public void Update(Input input) {
         // Since there are many systems in place and only one controller
@@ -56,5 +62,25 @@ public class Wheels {
         bottomRightMotor.setPower((straight + strafe + turn) / denominator);
         topLeftMotor.setPower((straight + strafe - turn) / denominator);
         topRightMotor.setPower((straight - strafe - turn) / denominator);
+    }
+
+    public void MoveDistance(double Distance) {
+        // instead of setting a power value we input a distance and have the motor move to that distance
+        bottomLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        bottomRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        topLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        topRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        bottomLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        bottomRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        topLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        topRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        bottomLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        bottomRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        topLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        topRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+
     }
 }
