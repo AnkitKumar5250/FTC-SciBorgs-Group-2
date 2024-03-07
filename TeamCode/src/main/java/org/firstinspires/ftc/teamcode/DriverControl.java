@@ -18,8 +18,8 @@ public class DriverControl extends OpMode {
 
     @Override
     public void loop() {
-        input1.Update(gamepad1);
-        hangerClaw.Update(input1);
+        // input1.Update(gamepad1);
+        // hangerClaw.Update(input1);
         wheels.Update(input1);
     }
 

@@ -16,6 +16,15 @@ public class Wheels {
     public double turnSpeed = 1;
     public double strafeSpeed = 1;
 
+    // Wheel radius of the big wheel(in centimeters)
+    public double wheel_radius = 1;
+    // Wheel radius of the small meccanum wheels(in centimeters)
+    public double meca_radius = 1;
+    // RPM of the dc motors
+    public double wheel_rpm = 1;
+    // Degrees per minute of stationary turning
+    public double wheel_dpm = 1;
+
     public void Init(HardwareMap hardwareMap) {
         // Fetching the physical motors and assigning them to the fields
         bottomLeftMotor = hardwareMap.get(DcMotor.class,"Bottom Left Motor");
@@ -45,6 +54,7 @@ public class Wheels {
         // Since there are many systems in place and only one controller
         // It would be beneficial to have different modes for operating different mechanisms(which the driver can switch through)
         if (input.inputMode != "Drive") {
+            
             return;
         }
 
@@ -58,29 +68,24 @@ public class Wheels {
         // this allows guarantees that values will always be accurate relative to each other
         double denominator = Math.max(Math.abs(straight) + Math.abs(strafe) + Math.abs(turn), 1);
 
-        bottomLeftMotor.setPower((straight - strafe + turn) / denominator);
-        bottomRightMotor.setPower((straight + strafe + turn) / denominator);
-        topLeftMotor.setPower((straight + strafe - turn) / denominator);
-        topRightMotor.setPower((straight - strafe - turn) / denominator);
+        bottomLeftMotor.setPower(Math.clamp((straight - strafe + turn) / denominator),0,1);
+        bottomRightMotor.setPower(Math.clamp((straight + strafe + turn) / denominator),0,1);
+        topLeftMotor.setPower(Math.clamp((straight + strafe - turn) / denominator),0,1);
+        topRightMotor.setPower(Math.clamp((straight - strafe - turn) / denominator),0,1);
     }
 
     public void MoveDistance(double Distance) {
         // instead of setting a power value we input a distance and have the motor move to that distance
-        bottomLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        bottomRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        topLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        topRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        double revs = Distance/wheel_radius;
+        double minutes = revs/wheel_rpm;
 
-        bottomLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        bottomRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        topLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        topRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        
+        
 
-        bottomLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        bottomRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        topLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        topRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
+    }
+    public void RotateDegrees(double Degrees) {
+        // instead of setting a power value we input a distance and have the motor move to that distance
+       
 
     }
 }
